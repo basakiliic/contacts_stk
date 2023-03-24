@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+
+       <record id="view_partner_form_inherit" model="ir.ui.view">
+          <field name="name">res.partner.inherit</field>
+          <field name="model">res.partner</field>
+          <field name="inherit_id" ref="base.view_partner_form"/>
+          <field name="arch" type="xml">
+              <xpath expr="//field[@name='vat']" position="after" >
+                  <field name="partner_member_types"  attrs="{'invisible': [('is_company','=', True)]}"  />
+                  <field name="partner_blood_groups"  attrs="{'invisible': [('is_company','=', True)]}" />
+                  <field name="partner_job"  attrs="{'invisible': [('is_company','=', True)]}" />
+                  <field name="partner_gender" attrs="{'invisible': [('is_company','=', True)]}" />
+                  <field name="partner_city" attrs="{'invisible': [('is_company','=', True)]}" />
+                  <field name="partner_birth_date" attrs="{'invisible': [('is_company','=', True)]}" />
+                  <!-- <field name="partner_education_status"  attrs="{'invisible': [('is_company','=', True)]}" /> -->
+                  <field name="partner_driving_license_control"  widget="radio" options="{'horizontal': true}" />
+                  <field name="partner_driving_license" widget="many2many_tags" attrs="{'invisible':[('partner_driving_license_control','=', 'no')]}" />
+                  <field name="partner_contact_choice_control"  widget="radio" options="{'horizontal': true}" />
+                  <field name="partner_provinces" attrs="{'invisible': [('is_company','=', True)]}" />
+                  <field name="partner_districts" attrs="{'invisible': [('is_company','=', True)]}" />
+                  <field name="partner_neighbourhoods" attrs="{'invisible': [('is_company','=', True)]}"/>
+                  <field name="partner_schools" attrs="{'invisible': [('is_company','=', True)]}" />
+                  <field name="partner_boxes" attrs="{'invisible': [('is_company','=', True)]}" />
+              </xpath>
+
+              <xpath expr="//field[@name='vat']" position="attributes">
+                  <attribute name="string" widget="char">Identification Number</attribute>
+                  <field name="vat" attrs= "{'invisible': [('is_company','=', True)]}"/>
+              </xpath>
+
+              <xpath expr="//field[@name='email']" position="attributes">
+                  <attribute name="attrs">{'required':[('partner_contact_choice_control','=', 'email')]}</attribute>
+              </xpath>
+
+              <xpath expr="//field[@name='phone']" position="attributes">
+                 <attribute name="attrs">{'required':[('partner_contact_choice_control','=', 'phone ')]}</attribute>
+              </xpath>
+
+              <xpath expr="//page[@name = 'internal_notes']" position="after">
+                  <page string="Extra Information" name="extra_installation_information">
+                      <group>
+                          <group >
+                            <field name="partner_before_ngo_control"  widget="radio" options="{'horizontal': true}" />
+                              <field name="partner_before_ngo" widget="char" attrs="{'invisible':[('partner_before_ngo_control','=', 'no')]}" />
+                              <br/>
+                              <field name="partner_family_ngo" widget="radio" options="{'horizontal': true}" />
+                              <br/>
+                          </group>
+                          <group >
+                              <field name="partner_sector" attrs="{'invisible': [('is_company','=', True)]}" />
+                              <field name="partner_languages" widget="many2many_tags" attrs="{'invisible': [('is_company','=', True)]}"/>
+                              <field name="partner_passport" widget="radio" options="{'horizontal': true}" />
+                          </group>
+                          <br/>
+                          <label for="partner_extra_info" string="Additional Note" />
+                          <field name="partner_extra_info" />
+                      </group>
+                  </page>
+              </xpath>
+          </field>
+    </record>
+  </data>
+</odoo>
