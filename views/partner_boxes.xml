@@ -25,7 +25,7 @@
         </record>
 
         <record id="action_boxes" model="ir.actions.act_window">
-            <field name="name">boxes</field>
+            <field name="name">Boxes</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">partner.boxes</field>
             <field name="view_mode">tree,form</field>
@@ -38,7 +38,7 @@
         </record>
 
         <menuitem  id="menu_boxes"
-               name="boxes"
+               name="Boxes"
                action="action_boxes"
                parent="contacts.res_partner_menu_config"
                sequence="10"/>

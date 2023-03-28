@@ -25,7 +25,7 @@
         </record>
 
         <record id="action_provinces" model="ir.actions.act_window">
-            <field name="name">provinces</field>
+            <field name="name">Provinces</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">partner.provinces</field>
             <field name="view_mode">tree,form</field>
@@ -38,7 +38,7 @@
         </record>
 
         <menuitem  id="menu_provinces"
-               name="provinces"
+               name="Provinces"
                action="action_provinces"
                parent="contacts.res_partner_menu_config"
                sequence="10"/>

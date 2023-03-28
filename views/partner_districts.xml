@@ -25,7 +25,7 @@
         </record>
 
         <record id="action_districts" model="ir.actions.act_window">
-            <field name="name">districts</field>
+            <field name="name">Districts</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">partner.districts</field>
             <field name="view_mode">tree,form</field>
@@ -38,7 +38,7 @@
         </record>
 
         <menuitem  id="menu_districts"
-               name="districts"
+               name="Districts"
                action="action_districts"
                parent="contacts.res_partner_menu_config"
                sequence="10"/>

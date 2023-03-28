@@ -38,7 +38,7 @@
         </record>
 
         <menuitem  id="menu_neighbourhoods"
-               name="neighbourhoods"
+               name="Neighbourhoods"
                action="action_neighbourhoods"
                parent="contacts.res_partner_menu_config"
                sequence="10"/>
